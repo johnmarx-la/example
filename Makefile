@@ -1,8 +1,7 @@
 CIRCLE_BUILD_NUM ?= 0
 TAG = 0.0.$(CIRCLE_BUILD_NUM)-$(shell git rev-parse --short HEAD)
 
-GOFILES = $(shell find ./ws -name '*.go' -not -path './vendor/*')
-GOPACKAGES = $(shell go list ./...  | grep -v /vendor/)
+GOFILES = $(shell find ws -name '*.go' )
 
 default: build
 
@@ -16,8 +15,3 @@ build-native: $(GOFILES)
 
 workdir/contacts: $(GOFILES)
 	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o workdir/contacts .
-
-test: test-all
-
-test-all:
-	@go test -v $(GOPACKAGES)
