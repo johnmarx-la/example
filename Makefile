@@ -1,7 +1,7 @@
 CIRCLE_BUILD_NUM ?= 0
 TAG = 0.0.$(CIRCLE_BUILD_NUM)-$(shell git rev-parse --short HEAD)
 
-GOFILES = $(shell find ws -name '*.go' )
+GOFILES = $(shell find . -name '*.go' )
 
 default: build
 
