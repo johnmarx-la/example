@@ -1,7 +1,7 @@
 CIRCLE_BUILD_NUM ?= 0
 TAG = 0.0.$(CIRCLE_BUILD_NUM)-$(shell git rev-parse --short HEAD)
 
-GOFILES = $(shell find . -name '*.go' -not -path './vendor/*')
+GOFILES = $(shell find .ws -name '*.go' -not -path './vendor/*')
 GOPACKAGES = $(shell go list ./...  | grep -v /vendor/)
 
 default: build
