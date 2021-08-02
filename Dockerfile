@@ -1,5 +1,5 @@
 FROM alpine:3.5
 
-ADD ./workdir/contacts /usr/bin/contacts
+ADD ./workdir/ws /usr/bin/ws
 
-ENTRYPOINT contacts
+ENTRYPOINT ws
